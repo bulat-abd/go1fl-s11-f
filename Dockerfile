@@ -10,6 +10,6 @@ COPY *.go ./
 
 COPY tracker.db ./
 
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o /parcel_app
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -ldflags="-s -w" -o /parcel_app
 
 CMD ["/parcel_app"]
